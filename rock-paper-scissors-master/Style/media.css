@@ -1,0 +1,46 @@
+@media screen and (max-width: 1024px) {
+    .partOne {
+        width: 90%;
+    }
+    .stepOne {
+        width: 90%;
+    }
+    .innerOne,.innerTwo {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .paper,.scissor, .rock {
+        width: 110px;
+        height: 110px;
+    }
+    .inImg {
+        width:80px;
+        height:80px;
+    }
+    .inImg img {
+        width: 40%;
+    }
+    .innerOne,.innerTwo {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 470px) {
+    .paper,.scissor, .rock {
+        width: 90px;
+        height: 90px;
+    }
+    .stepOne {
+        background-size: 90%;
+    }
+    .inImg {
+        width:70px;
+        height:70px;
+    }
+    .inImg img {
+        width: 40%;
+    }
+    .innerOne,.innerTwo {
+        width: 100%;
+    }
+}
