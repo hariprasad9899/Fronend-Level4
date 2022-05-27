@@ -54,9 +54,7 @@ function proceedStepThree(sIndex,sObj) {
     let hPick = housePick.getElementsByClassName("pick")[0];
     let randomElement = choosePick(sIndex);
     hPick.after(randomElement);
-    setTimeout(function(){
-        proceedStepFour(sObj,randomElement);
-    },1000)
+    proceedStepFour(sObj,randomElement);
 }
 
 let newArr = []
@@ -73,9 +71,7 @@ function choosePick(choosenIndex) {
 function proceedStepFour(userChoosen,houseChoosen) {
     let result = chooseWinner(userChoosen,houseChoosen);
     result.classList.add("winner");
-    setTimeout(function(){
-        proceedStepFive(result);
-    },1000)
+    proceedStepFive(result);
 }
 
 function chooseWinner(u,h) {
@@ -90,8 +86,10 @@ function chooseWinner(u,h) {
     }
 }
 
+
+
+
 function proceedStepFive(result) {
-    console.log("Entered Step 5")
     stepThree.classList.add("done");
     let userPick= stepThree.getElementsByClassName("userPick")[0];
     let housePick= stepThree.getElementsByClassName("housePick")[0];
@@ -102,12 +100,43 @@ function proceedStepFive(result) {
     let hElem = decision.getElementsByTagName('h1')[0];
     let mobhElem = mob.getElementsByTagName('h1')[0];
     if(result.parentElement.classList.contains("userPick")) {
-        hElem.innerText = "YOU WIN";
-        mobhElem.innerText = "YOU WIN";
+        hElem.textContent = "YOU WIN";
+        mobhElem.textContent = "YOU WIN";
+        addScore()
+
     } else {
-        hElem.innerText = "YOU LOSE";
-        mobhElem.innerText = "YOU LOSE";
+        hElem.textContent = "YOU LOSE";
+        mobhElem.textContent = "YOU LOSE";
+        subScore()
     }
     decision.classList.add("done");
     mob.classList.add("done");
+}
+
+var counter = 0;
+const scoreVal = document.getElementById("scoreVal");
+
+function addScore() {
+    counter = counter + 1;
+    scoreVal.innerText = counter;
+}
+function subScore() {
+    if(counter !== 0) {
+        counter = counter - 1;
+        scoreVal.innerText = counter;
+    }
+}
+
+
+
+function playAgain() {
+    newArr = [];
+    stepOne.style.display = "block";
+    stepTwo.style.display = "none";
+    stepThree.style.display = "none";
+    let prevElems = [...stepThree.getElementsByClassName("elems")]
+    for(let k of prevElems) {
+        k.classList.remove("winner");
+        k.remove();
+    }
 }

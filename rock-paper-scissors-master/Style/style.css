@@ -73,7 +73,6 @@ main {
     width: 70%;
     margin: auto;
     padding-top: 30px;
-    border: 1px solid hsl(217, 16%, 45%);
 }
 .sTable {
     width: 90%;
@@ -114,7 +113,6 @@ main {
     height: 500px;
     margin: auto;
     margin-top: 30px;
-    border: 1px solid white;
     background: url(../images/bg-triangle.svg) center no-repeat;
 }
 .innerOne,.innerTwo {
@@ -132,10 +130,20 @@ main {
     height: 150px;
     display: grid;
     border-radius: 50%;
+    
 }
-.paper { background: radial-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));}
-.scissor { background: radial-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%)); }
-.rock { background: radial-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%)); }
+.paper { 
+    background: radial-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+    border-bottom: 8px solid hsl(230, 88%, 56%);
+}
+.scissor { 
+    background: radial-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%)); 
+    border-bottom: 8px solid hsl(39, 93%, 41%);
+}
+.rock { 
+    background: radial-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%)); 
+    border-bottom: 8px solid hsl(349, 78%, 48%);
+}
 .inImg {
     margin: auto;
     width: 120px;
@@ -145,6 +153,7 @@ main {
     align-items: center;
     justify-content: center;
     background-color: white;
+    border-top: 8px solid rgba(0, 0, 0, 0.096);
 }
 .inImg img {
     width: 50%;
@@ -185,6 +194,7 @@ main {
 }
 .stepTwo .housePick .elems .inImg {
     background-color: hsl(229, 25%, 31%);
+    border-top: none;
 }
 .stepTwo .housePick .elems .inImg img{
     display: none;
@@ -192,9 +202,9 @@ main {
 .stepTwo .decision {
     display: none;
 }
-
-
-
+.stepTwo .elems {
+    border-bottom: none;
+}
 
 
 
@@ -209,13 +219,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
 }
 .userPick,
 .housePick {
     width: 30%;
     height: 80%;
-    border: 1px solid white;
     display: flex;
     flex-direction: column;
     gap: 20px;

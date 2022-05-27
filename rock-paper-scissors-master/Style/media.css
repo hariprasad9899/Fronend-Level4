@@ -35,7 +35,7 @@
         height: 90px;
     }
     .stepOne {
-        background-size: 90%;
+        background-size: 80%;
     }
     .inImg {
         width:70px;
@@ -66,5 +66,14 @@
     }
     .mob.done {
         display: flex;
+    }
+    .sTable img {
+        width: 110px;
+        height: 70px;
+    }
+    .scoreCard {
+        width: 90px;
+        height: 90px;
+        padding: 2px;
     }
 }
