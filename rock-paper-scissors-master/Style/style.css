@@ -71,7 +71,6 @@ main {
 .rules.active { display: flex;}
 .partOne {
     width: 70%;
-    height: 100%;
     margin: auto;
     padding-top: 30px;
     border: 1px solid hsl(217, 16%, 45%);
@@ -111,7 +110,7 @@ main {
 /* Step One */
 
 .stepOne {
-    width: 80%;
+    width: 100%;
     height: 500px;
     margin: auto;
     margin-top: 30px;
@@ -119,9 +118,8 @@ main {
     background: url(../images/bg-triangle.svg) center no-repeat;
 }
 .innerOne,.innerTwo {
-    width: 60%;
+    width: 50%;
     height: 250px;
-    /* height: 50%; */
     margin: auto;
     display: flex;
     align-items: center;
@@ -130,8 +128,8 @@ main {
 .paper,
 .scissor,
 .rock {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     display: grid;
     border-radius: 50%;
 }
@@ -140,8 +138,8 @@ main {
 .rock { background: radial-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%)); }
 .inImg {
     margin: auto;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -157,8 +155,8 @@ main {
 .elems:hover {
     cursor: pointer;
 }
-.elems.active {
-    animation: ripple 3s linear 1;
+.elems.winner {
+    animation: ripple 1s linear infinite;
 }
 
 @keyframes ripple {
@@ -182,8 +180,103 @@ main {
 
 /* Step Two */
 
+.stepTwo .housePick .elems {
+    background: none;
+}
+.stepTwo .housePick .elems .inImg {
+    background-color: hsl(229, 25%, 31%);
+}
+.stepTwo .housePick .elems .inImg img{
+    display: none;
+}
+.stepTwo .decision {
+    display: none;
+}
+
+
+
+
+
+
+
+/* Step Three */
+
+.game {
+    width: 100%;
+    height: 350px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+.userPick,
+.housePick {
+    width: 30%;
+    height: 80%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+}
+.userPick h2,
+.housePick h2 {
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+.decision {
+    width: 40%;
+    display: none;
+    margin-top: -50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+.decision h1 {
+    font-size: 3em;
+}
+.decision button {
+    width: 50%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: hsl(349, 71%, 52%);
+}
+.decision button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 3px rgb(158, 152, 152);
+}
+.mob {
+    display: none;
+}
+.stepOne {
+    display: block;
+}
 .stepTwo {
-    width: 80%;
-    height: 250px;
-    
+    display: none;
+}
+.stepThree {
+    display: none;
+}
+.stepThree.done {
+    width: 100%;
+}
+.userPick.done,
+.housePick.done {
+    width: 30%;
+}
+.decision.done {
+    display: flex;
+}
+.mob.done {
+    display: none;
 }

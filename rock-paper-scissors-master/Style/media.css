@@ -2,7 +2,7 @@
     .partOne {
         width: 90%;
     }
-    .stepOne {
+    .game {
         width: 90%;
     }
     .innerOne,.innerTwo {
@@ -24,6 +24,10 @@
     .innerOne,.innerTwo {
         width: 80%;
     }
+    .userPick,
+    .housePick {
+        width: 40%;
+    }
 }
 @media screen and (max-width: 470px) {
     .paper,.scissor, .rock {
@@ -40,7 +44,27 @@
     .inImg img {
         width: 40%;
     }
-    .innerOne,.innerTwo {
-        width: 100%;
+    .stepThree .userPick,.stepThree .housePick {
+        width: 50%;
+        justify-content: center;
+    }
+    .userPick .pick,
+    .housePick .pick {
+        order: 2;
+    }
+    .pick h2 {
+        font-size: 1.3em;
+    }
+    .decision,
+    .decision.done {
+        display: none;
+    }
+    .mob {
+        margin: auto;
+        display: none;
+        width: 80%;
+    }
+    .mob.done {
+        display: flex;
     }
 }
