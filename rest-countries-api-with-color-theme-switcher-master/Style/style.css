@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+html,body,main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+.partOne {
+    width: 100%;
+    background-color: white;
+}
+.innerOne {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+.name,
+.mode {
+    display: flex;
+    align-items: center;
+}
+.name {
+    width: 50%;
+    justify-content: flex-start;
+}
+.mode {
+    width: 50%;
+    justify-content: flex-end;
+}
+.name p {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.mode p {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* Part Two */
+
+.partTwo {
+    width: 100%;
+    padding: 10px;
+    background-color: hsl(0, 2%, 90%);
+}
+.innerTwo {
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+.searchBar {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+input {
+    width:300px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    padding-left: 30px;
+    background: white url(../Images/magnifying-glass-solid.svg) left center no-repeat;
+    background-size: 15px;
+    background-position-x: 1%;
+}
+.filter {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.wrapper {
+    width: 200px;
+    height: 77.5%;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px 0px 8px;
+    background-color: white;
+    justify-content: space-between;
+}
+.wrapper:hover {
+    user-select: none;
+    cursor: pointer;
+}
+.dropContent {
+    display: block;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    width: 200px;
+    top: 120%;
+    z-index: 100;
+    transition: 0.4s ease-in-out;
+    background-color: white;
+    box-shadow: 0px 5px 5px 5px rgb(219, 217, 217);
+}
+.dropContent p {
+    display: none;
+}
+.dropContent p {
+    width: 100%;
+    font-weight: 600;
+    padding: 2px 0px 2px 10px;
+}
+.dropContent p:hover {  
+    background-color: #eee;
+    cursor: pointer;
+    color: dodgerblue;
+}
+.dropContent.show {
+    height: 220px;
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+}
+.dropContent.show p {
+    display: block;
+}
+.arrow {
+    transition: 0.3s ease-in-out;
+}
+.arrow.invert {
+    transition: 0.3s ease-in-out;
+    transform: rotate(180deg);
+    color: rgb(0, 89, 255);
+}
+
+/* part Three */
+
+.partThree {
+    width: 100%;
+    background-color: #eee;
+}
+.innerThree {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 30px;
+}
+.eachCountry {
+    flex-grow: 1;
+    width: 250px;
+    max-width: 350px;
+    display: none;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+}
+.flag {
+    width: 100%;
+    height: 150px;
+}
+.flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.content {
+    padding: 15px 5px 10px 20px;
+}
+.content h3 {
+    margin-top: -5px;
+}
+.content p {
+    margin-top: -5px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+.content p span {
+    font-weight: 100;
+}
+.eachCountry.elem {
+    display: flex;
+}
+.disable {
+    display: none;
+}
+.eachCountry:hover {
+    cursor: pointer;
+}
+
+/* part Four */
+.partFour {
+    width: 100%;
+    display: none;
+    padding-top: 30px;
+}
+.innerFour {
+    width: 90%;
+    margin: auto;
+}
+.back {
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+.back button {
+    width: 130px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.153);
+}
+.detail {
+    padding-top: 50px;
+    display: flex;
+    gap: 50px;
+}
+.country,
+.info {
+    width: 50%;
+}
+.country img {
+    width: 100%;
+    min-width: 300px;
+    height: 300px;
+}
+.addInfo {
+    display: flex;
+    justify-content: space-between;
+}
+.addInfo p {
+    margin-top: -8px;
+    font-weight: 600;
+}
+.addInfo p span {
+    font-weight: 100;
+}
+.borders {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.borders p {
+    font-weight: 600;
+}
+.btnSet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.btnSet button {
+    border: none;
+    outline: none;
+    padding: 2px 10px 2px 10px;
+    background-color: white;
+    box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.084);
+}

@@ -1,0 +1,17 @@
+myCountryData[34]["flags"]["svg"]
+myCountryData[34]["name"]["common"]
+myCountryData[34]["region"]
+myCountryData[34]["population"]
+myCountryData[34]["capital"][0]
+
+
+myCountryData[34]["capital"][0]
+myCountryData[34]["subregion"]
+myCountryData[34]["capital"]
+myCountryData[0]["tld"]
+myCountryData[0]["currencies"]
+myCountryData[0]["languages"]
+
+border countires
+
+https://restcountries.com/v3.1/alpha/FRA

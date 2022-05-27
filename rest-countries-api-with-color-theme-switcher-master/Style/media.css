@@ -1,0 +1,63 @@
+
+
+@media screen and (max-width:750px) { 
+    .innerFour {
+        width: 90%;
+    }
+    .detail {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .country,
+    .info {
+        width: 100%;
+    }
+    .country {
+        display: flex;
+    }
+    .country img {
+        width: 100%;
+        min-width: 0;
+        height: 250px;
+    }
+    .addInfo {
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width:515px) {
+    .innerOne {
+        width: 90%;
+    }
+    .name p {
+        font-size: 1em;;
+    }
+    .mode p {
+        font-size: 0.8em;
+    }
+    .innerTwo {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .searchBar,
+    .filter {
+        width: 100%;
+    }
+    input {
+        width: 80%;
+    }
+    .filter {
+        justify-content: flex-start;
+    }
+    .filter .wrapper {
+        width: 80%;
+    }
+    .dropContent {
+        width: 80%;
+    }
+    .flag {
+        width: 100%;
+        height: 120px;
+    }
+}

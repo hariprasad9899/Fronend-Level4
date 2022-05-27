@@ -4,14 +4,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/52d0ff79dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/media.css">
-    <script src="./App/app.js"></script>
+    <script src="./App/app.js" defer></script>
     <title>Countries</title>
 </head>
 <body>
     <main>
-        
+        <div class="partOne">
+            <div class="innerOne">
+                <div class="name">
+                    <p>Where in the world ?</p>
+                </div>
+                <div class="mode">
+                    <p><i class="fa icon-foo">&#xf186;</i></p>&nbsp;
+                    <p>Dark Mode</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="partTwo">
+            <div class="innerTwo">
+                <div class="searchBar">
+                    <input type="text" name="country" id="inp" placeholder="Search for a country...">
+                </div>
+                <div class="filter">
+                    <div class="wrapper">
+                        <p id="appliedFilter">Filter by Region</p>
+                        <p class="arrow"><i class="fa icon-foo">&#xf107;</i></p>
+                    </div>
+                    <div class="dropContent">
+                        <p class="reg">Africa</p>
+                        <p class="reg">Americas</p>
+                        <p class="reg">Asia</p>
+                        <p class="reg">Europe</p>
+                        <p class="reg">Oceania</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="partThree">
+            <div class="innerThree">
+
+                <div class="eachCountry">
+                    <div class="flag">
+                        <img class="cImg" src="./Images/DE.svg" alt="">
+                    </div>
+                    <div class="content">
+                        <h3 class="cName">Germany</h3>
+                        <p>Population: <span class="cPop">81,770,900</span> </p>
+                        <p>Region: <span class="cReg">Europe</span></p>
+                        <p>Capital: <span class="cCap">Berlin</span></p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div class="partFour">
+            <div class="innerFour">
+                <div class="back">
+                    <button id="backBtn">&#x2190; &nbsp; Back</button>
+                </div>
+
+                <div class="detail">
+
+                    <div class="country">
+                        <img src="./Images/DE.svg" alt="">
+                    </div>
+
+                    <div class="info">
+
+                        <div class="countryName">
+                            <h2>Belgium</h2>
+                        </div>
+
+                        <div class="addInfo">
+
+                            <div class="contentL">
+                                <p>Native Name: <span>Belgie</span></p>
+                                <p>Population: <span>11,319,511</span></p>
+                                <p>Region: <span>Europe</span></p>
+                                <p>Sub Region: <span>Western Europe</span></p>
+                                <p>Capital: <span>Brussels</span></p>
+                            </div>
+
+                            <div class="contentR">
+                                <p>Top Level Domain: <span>.be</span></p>
+                                <p>Currencies: <span>Euro</span></p>
+                                <p>Languages: <span>Dutch,Frenc,German</span></p>
+                            </div>
+
+                        </div>
+
+                        <div class="borders">
+                            <p>Border Countires:</p>
+                            <div class="btnSet">
+                                <button>France</button>
+                                <button>Germany</button>
+                                <button>Netherland</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </main>
 </body>
 </html>
