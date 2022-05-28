@@ -6,6 +6,17 @@ const innerThree = document.getElementsByClassName("innerThree")[0];
 const partThree = document.getElementsByClassName('partThree')[0];
 const partFour = document.getElementsByClassName('partFour')[0];
 const partTwo = document.getElementsByClassName('partTwo')[0];
+let imgInfo = document.getElementsByClassName("cImgInfo")[0];
+let infoCName = document.getElementsByClassName("infoCName")[0];
+let cInfoPop = document.getElementsByClassName("cInfoPop")[0];
+let cInfoReg = document.getElementsByClassName("cInfoReg")[0];
+let cInfoCap = document.getElementsByClassName("cInfoCap")[0];
+let cInfoSReg = document.getElementsByClassName("cInfoSReg")[0];
+let cInfoNatName = document.getElementsByClassName("cInfoNatName")[0];
+let cInfoTld = document.getElementsByClassName("cInfoTld")[0];
+let cInfoCurr = document.getElementsByClassName("cInfoCurr")[0];
+let cInfoLan = document.getElementsByClassName("cInfoLan")[0];
+let btnSet = document.getElementsByClassName("btnSet")[0];
 
 wrapper.addEventListener("click",()=> {
     dropContent.classList.toggle("show");
@@ -24,10 +35,6 @@ window.onload = function() {
     let holderArray = []
     async function putData() {
         let data = await fetchData();
-        // // testing function
-        // console.log(data)
-        // // test end
-
         for(let eachElem of data) {
             if(eachElem["ccn3"] == "334") {continue}
             if(holderArray.indexOf(eachElem["ccn3"]) >= 0) { continue}
@@ -62,6 +69,33 @@ window.onload = function() {
         let load = await putData();
         let regions = [...dropContent.getElementsByTagName('p')]
 
+        // Theme Switch 
+
+        const mode = document.getElementsByClassName('mode')[0];
+        const darkElems = [...document.getElementsByClassName('dark')];
+        const darkBgOne = [...document.getElementsByClassName('darkBgOne')];
+        const darkBgTwo = [...document.getElementsByClassName('darkBgTwo')];
+        const dbgs = [...document.getElementsByClassName('dbg')];
+        const dg = [...document.getElementsByClassName('dg')];
+        const mainbg = [...document.getElementsByClassName('mainbg')];
+        const bxh = [...document.getElementsByClassName('bxh')];
+        function switchMode(nodes) {
+            for(let i of nodes) {
+                i.classList.toggle("switch")
+            }
+        }
+
+
+        mode.addEventListener("click",()=> {
+            switchMode(darkElems)
+            switchMode(darkBgOne);
+            switchMode(darkBgTwo);
+            switchMode(dg);
+            switchMode(dbgs);
+            switchMode(mainbg);
+            switchMode(bxh);
+        })
+
 
         for(let i of regions) {
             i.addEventListener('click',()=> {
@@ -71,6 +105,18 @@ window.onload = function() {
                 filterOutRegions(i.innerText.toLowerCase());
             })
         }
+
+        // helper function
+        function filterOutRegions(filterText) {
+            let allElems = [...document.getElementsByClassName("elem")];
+            for(let each of allElems) {
+                each.style.display = "flex";
+                if(!(each.dataset.region == filterText)) {
+                    each.style.display = "none";
+                } 
+            }
+        }
+
 
         const inp = document.getElementById('inp');
         inp.addEventListener('input',()=> {
@@ -86,16 +132,22 @@ window.onload = function() {
         })
 
 
+        const backBtn = document.getElementById('backBtn');
+        backBtn.addEventListener('click',()=> {
+            partTwo.style.display = "block";
+            partThree.style.display = "block";
+            partFour.style.display = "none"
+        })
+
         const elems = [...document.getElementsByClassName('elem')];
         for(let eachElem of elems) {
-            eachElem.addEventListener('click', ()=> {
+            eachElem.addEventListener('click',async ()=> {
                 partTwo.style.display = "none";
                 partThree.style.display = "none";
-                partFour.style.display = "block"
-                proceedPartTwo(eachElem);
+                await proceedPartTwo(eachElem);
+                partFour.style.display = "block";
             })
         }
-
 
         async function proceedPartTwo(selectedeElem) {
             let cca2 = selectedeElem.dataset.code;
@@ -105,36 +157,8 @@ window.onload = function() {
             fillCountryInfo(selectedCountryInfo)
         }
 
-        const backBtn = document.getElementById('backBtn');
-        backBtn.addEventListener('click',()=> {
-            partTwo.style.display = "block";
-            partThree.style.display = "block";
-            partFour.style.display = "none"
-        })
-
-        // helper function
-        function filterOutRegions(filterText) {
-            let allElems = [...document.getElementsByClassName("elem")];
-            for(let each of allElems) {
-                each.style.display = "flex";
-                if(!(each.dataset.region == filterText)) {
-                    each.style.display = "none";
-                } 
-            }
-        }
-
         async function fillCountryInfo(info) {
-            let imgInfo = document.getElementsByClassName("cImgInfo")[0];
-            let infoCName = document.getElementsByClassName("infoCName")[0];
-            let cInfoPop = document.getElementsByClassName("cInfoPop")[0];
-            let cInfoReg = document.getElementsByClassName("cInfoReg")[0];
-            let cInfoCap = document.getElementsByClassName("cInfoCap")[0];
-            let cInfoSReg = document.getElementsByClassName("cInfoSReg")[0];
-            let cInfoNatName = document.getElementsByClassName("cInfoNatName")[0];
-            let cInfoTld = document.getElementsByClassName("cInfoTld")[0];
-            let cInfoCurr = document.getElementsByClassName("cInfoCurr")[0];
-            let cInfoLan = document.getElementsByClassName("cInfoLan")[0];
-            let btnSet = document.getElementsByClassName("btnSet")[0];
+            
             imgInfo.src = info[0]["flags"]["svg"];
             infoCName.innerText = info[0]["name"]["common"];
             cInfoNatName.innerText = info[0]["name"]["common"];
@@ -143,14 +167,13 @@ window.onload = function() {
             cInfoReg.innerText = info[0]["region"];
             cInfoCap.innerText = info[0]["capital"]
             cInfoSReg.innerText = info[0]["subregion"]
-            fillCurrency(cInfoCurr,info[0]["currencies"])
-            fillLanguages(cInfoLan,info[0]["languages"])
+            await fillCurrency(cInfoCurr,info[0]["currencies"])
+            await fillLanguages(cInfoLan,info[0]["languages"])
             await fillBorders(btnSet,info[0])
-            // cInfoCurr.innerText = info[0]["currencies"][0]["name"]
-            // console.log(info[0])
         }
         
-        function fillCurrency(elem,data) {
+        // helper function
+        async function fillCurrency(elem,data) {
             let currency = []
             for(let key in data) {
                 currency.push(data[key]["name"])
@@ -159,7 +182,8 @@ window.onload = function() {
             elem.innerText = cur;
         }
 
-        function fillLanguages(elem,data) {
+        // helper function
+        async function fillLanguages(elem,data) {
             let lang = [];
             for(let key in data) {
                 lang.push(data[key])
@@ -168,6 +192,7 @@ window.onload = function() {
             elem.innerText = languages;
         }
 
+        // helper function
         async function fillBorders(elem,data) {
             let borders = []
             let counter = 0;
@@ -177,18 +202,18 @@ window.onload = function() {
                     if(counter > 3) { break}
                     borders.push(i)
                 }
+                let countryNames = await findCountryNames(borders)
+                let btns = [...elem.getElementsByTagName('button')];
+                for(let k of btns) { k.remove(); }
+                for(let i of countryNames) {
+                    let btnElem = document.createElement('button');
+                    btnElem.innerText = i;
+                    elem.appendChild(btnElem)
+                }
+
             } else {
-                return "undefined";
-            }
-            let countryNames = await findCountryNames(borders)
-            let btns = [...elem.getElementsByTagName('button')];
-            for(let k of btns) {
-                k.remove();
-            }
-            for(let i of countryNames) {
-                let btnElem = document.createElement('button');
-                btnElem.innerText = i;
-                elem.appendChild(btnElem)
+                let btns = [...elem.getElementsByTagName('button')];
+                for(let k of btns) { k.remove(); }
             }
         }
 
@@ -208,6 +233,7 @@ window.onload = function() {
 
     
 }
+
 
 
 
