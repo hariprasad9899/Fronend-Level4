@@ -337,8 +337,9 @@ input.switch{
 
 .cm {
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 40%;
+    margin-top: 150px;
     display: none;
     gap: 15px;
     transform: translate(-50%,- 50%);

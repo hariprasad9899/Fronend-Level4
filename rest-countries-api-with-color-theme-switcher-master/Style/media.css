@@ -24,6 +24,10 @@
     .addInfo {
         flex-direction: column;
     }
+    .cm {
+        top: 50%;
+        left: 30%;
+    }
 }
 
 
@@ -60,5 +64,11 @@
     .flag {
         width: 100%;
         height: 120px;
+    }
+    .cm {
+        left: 20%;
+    }
+    .cm span{
+        font-size: 1em;
     }
 }
