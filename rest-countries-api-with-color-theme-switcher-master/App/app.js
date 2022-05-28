@@ -18,6 +18,10 @@ let cInfoCurr = document.getElementsByClassName("cInfoCurr")[0];
 let cInfoLan = document.getElementsByClassName("cInfoLan")[0];
 let btnSet = document.getElementsByClassName("btnSet")[0];
 
+
+
+
+
 wrapper.addEventListener("click",()=> {
     dropContent.classList.toggle("show");
     arrow.classList.toggle("invert");
@@ -34,7 +38,9 @@ window.onload = function() {
 
     let holderArray = []
     async function putData() {
+        let loader = document.getElementsByClassName("loader")[0];
         let data = await fetchData();
+        loader.style.display = "none";
         for(let eachElem of data) {
             if(eachElem["ccn3"] == "334") {continue}
             if(holderArray.indexOf(eachElem["ccn3"]) >= 0) { continue}
@@ -79,6 +85,7 @@ window.onload = function() {
         const dg = [...document.getElementsByClassName('dg')];
         const mainbg = [...document.getElementsByClassName('mainbg')];
         const bxh = [...document.getElementsByClassName('bxh')];
+        const cm = [...document.getElementsByClassName('cm')];
         function switchMode(nodes) {
             for(let i of nodes) {
                 i.classList.toggle("switch")
@@ -94,6 +101,7 @@ window.onload = function() {
             switchMode(dbgs);
             switchMode(mainbg);
             switchMode(bxh);
+            switchMode(cm);
         })
 
 
@@ -144,7 +152,9 @@ window.onload = function() {
             eachElem.addEventListener('click',async ()=> {
                 partTwo.style.display = "none";
                 partThree.style.display = "none";
+                let loaderTwo = document.getElementsByClassName("loaderTwo")[0];
                 await proceedPartTwo(eachElem);
+                loaderTwo.style.display = "none";
                 partFour.style.display = "block";
             })
         }

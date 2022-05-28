@@ -13,6 +13,7 @@
         width: 100%;
     }
     .country {
+        border: 1px solid red;
         display: flex;
     }
     .country img {
